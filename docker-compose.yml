@@ -1,41 +1,12 @@
-version: '3.8'
+version: "3"
 services:
-  # PostgreSQL
-  postgres:
-    container_name: postgres
-    build: ./postgres
-    environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: password
-      POSTGRES_URL: postgres://admin:password@localhost:5432/sbm-done
-      POSTGRES_DB: sbm-done
-      POSTGRES_HOST: postgres
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
-      - '5432:5432'
-
-  # Redis
-  redis:
-    container_name: redis
-    image: redis
-    ports:
-      - '6379:6379'
-
-  # Backend
-  sbm-done-api:
-    # env_file:
-    #   - ./.private/api-keys.env "Another way to insert env variables"
-    container_name: backend
-    build: ./
+      - "80:80"
     volumes:
-      - ./:/usr/src/sbm-done-api
-    command: npm start
-    working_dir: /usr/src/sbm-done-api
-    ports:
-      - '3000:3000'
+      - .:/app
     environment:
-      POSTGRES_URI: postgres://admin:password@postgres:5432/sbm-done
-      REDIS_URI: redis://redis:6379
-    # Heads up! Docker has updated this feature and now you don't need to define the links property in order for things to work - https://docs.docker.com/compose/networking/
-    # links:
-    #   - postgres
-    #   - redis
+      - NODE_ENV=production
