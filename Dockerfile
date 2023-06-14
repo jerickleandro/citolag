@@ -1,6 +1,5 @@
 # Base image
-FROM node:14-alpine
-
+FROM node:16.12.0
 # Set working directory
 WORKDIR /app
 
@@ -11,6 +10,12 @@ RUN yarn install --production
 
 # Copy project files
 COPY . .
+
+# Build arguments
+ARG NODE_VERSION=16.12.0
+
+# Environment
+ENV NODE_VERSION $NODE_VERSION
 
 # Build the React app
 RUN yarn build
