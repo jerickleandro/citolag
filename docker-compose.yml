@@ -1,19 +1,18 @@
-version: '3.8'
-services:
+version: '3.7'
 
-  # Backend
-  sbm-done-api:
-    # env_file:
-    #   - ./.private/api-keys.env "Another way to insert env variables"
-    container_name: backend
-    build: ./
-    volumes:
-      - ./:/usr/src/sbm-done-api
-    command: npm start
-    working_dir: /usr/src/sbm-done-api
-    ports:
-      - '3000:3000'
-    # Heads up! Docker has updated this feature and now you don't need to define the links property in order for things to work - https://docs.docker.com/compose/networking/
-    # links:
-    #   - postgres
-    #   - redis
+services:
+    membership-front:
+        container_name: membership-front
+        image: membership-front:dev
+        build:
+            context: .
+            dockerfile: Dockerfile-dev
+        volumes:
+            - .:/app
+            - /app/node_modules
+        ports:
+            - 3000:3000
+        
+networks:
+  evoe-connect:
+    external: true
