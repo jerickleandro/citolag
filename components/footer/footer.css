@@ -16,7 +16,7 @@ footer .links-section {
 }
 .footer-links .links-block {
   margin: 30px 0;
-  padding-left: 60px;
+  padding-left: 0px;
 }
 .footer-links .links-block:first-child {
   padding-left: 0px;
@@ -89,9 +89,9 @@ footer .copyright .sep {
 }
 
 @media only screen and (max-width: 970px) {
-  .footer-links .links-block {
+  /* .footer-links .links-block {
     display: none;
-  }
+  } */
   .footer-links .links-block.hours {
     display: block;
     padding-left: 0;

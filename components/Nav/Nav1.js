@@ -1,6 +1,4 @@
 import React from 'react';
-import LogoImage from '../../public/img/llogo.png';
-import './nav1.css';
 
 function Nav1() {
   return (

@@ -26,7 +26,7 @@ function Tools() {
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="https://www.labhoraciofittipaldi.com.br/vidalaudos/login_paciente.xhtml;jsessionid=115f228a2be66aa0ca4d65949bc1">
             <Image src="/img/faq.svg" width={33} height={44} alt="" />
               <span>Resultado de Biopsia</span>
             </a>
